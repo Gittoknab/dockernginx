@@ -64,7 +64,7 @@ Resources:
           Value: !Join
             - ""
             - - !Ref AWS::StackName
-              - "-PublicA"
+              - "-PublicSA"
 
   PublicRoute:
     Type: AWS::EC2::Route
