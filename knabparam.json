@@ -1,7 +1,6 @@
 {
     "Parameters": {
         "VPCCIDR": "10.129.128.0/23",
-        "PubSubaCIDR": "10.129.128.0/24",
-        "AmiId": "ami-0f007bf1d5c770c6e"
+        "PubSubaCIDR": "10.129.128.0/24"
     }
 }
