@@ -258,7 +258,7 @@ Resources:
             
     Properties:
       KeyName: linuxssh
-      ImageId: '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2/recommended/image_id}}'
+      ImageId: '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}'
       SubnetId: !Ref PublicSubnetA
       SecurityGroupIds:
         - !Ref SecurityGroupSSH
