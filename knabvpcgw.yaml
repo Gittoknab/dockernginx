@@ -233,7 +233,7 @@ Resources:
             - - !Ref AWS::StackName
               - "-SecGroup"
       
-  ubudocker:
+  dockernginx:
     Type: AWS::EC2::Instance
     CreationPolicy:
         ResourceSignal:
@@ -268,8 +268,8 @@ Resources:
           !Sub |
             #!/bin/bash -xe
             yum update -y aws-cfn-bootstrap
-            /opt/aws/bin/cfn-init -s ${AWS::StackId} --resource ubudocker --configsets docker_bootstrap --region ${AWS::Region}
-            /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackId} --resource ubudocker --region ${AWS::Region}
+            /opt/aws/bin/cfn-init -s ${AWS::StackId} --resource dockernginx --configsets docker_bootstrap --region ${AWS::Region}
+            /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackId} --resource dockernginx --region ${AWS::Region}
             docker pull nginx
             docker run --name knab-nginx -d --restart unless-stopped -p 8080:80 nginx
    
@@ -279,5 +279,5 @@ Outputs:
     Value: !Ref VPC
     
  InstanceIP:
-      Value: !GetAtt ubudocker.PublicIp
+      Value: !GetAtt dockernginx.PublicIp
       Description: Instance public IP
